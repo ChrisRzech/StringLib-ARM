@@ -5,3 +5,5 @@ This is a group project that creates a string library. Our main driver(start.s) 
 - ChrisRzech (github.com/ChrisRzech)
 - PullusFurtivus (github.com/PullusFurtivus)
 
+**Class:** CS3B
+
