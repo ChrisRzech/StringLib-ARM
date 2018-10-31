@@ -3,5 +3,5 @@ This is a group project that creates a string library. Our main driver(start.s) 
 
 # Contributors (GitHub Accounts)
 - ChrisRzech (github.com/ChrisRzech)
-- PullusFurtivus (github.com/PullusFirtivus)
+- PullusFurtivus (github.com/PullusFurtivus)
 

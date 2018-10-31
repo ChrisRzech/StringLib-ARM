@@ -21,15 +21,15 @@ length .req R0   @
 strPtr .req R1   @
 char   .req R2   @
 @@@@@@@@@@@@@@@@@@
-	mov	length,#0
+	mov	length,#0		@initialize counter
 
 loop:
-	ldrb	char,[strPtr],#1
-	cmp	char,#'\0'
+	ldrb	char,[strPtr],#1	@load in a character (byte)
+	cmp	char,#0			@see if its a \0
 	beq	exit
 
-	add	length,#1
-	b	loop
+	add	length,#1		@increment counter
+	b	loop			@loop back
 
 exit:
 	bx	LR
