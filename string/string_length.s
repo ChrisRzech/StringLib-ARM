@@ -1,7 +1,7 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Returns the amount of  @
 @ characters in a string @
-@@@@@@@@@@@@@@@@@@@@@@@@@@
+@====================@@@@@
 @ Pre-Condition      @
 @--------------------@
 @ R0: n/a            @
@@ -21,6 +21,8 @@ length .req R0   @
 strPtr .req R1   @
 char   .req R2   @
 @@@@@@@@@@@@@@@@@@
+	push	{R1}
+
 	mov	length,#0		@initialize counter
 
 loop:
@@ -32,6 +34,7 @@ loop:
 	b	loop			@loop back
 
 exit:
+	pop	{R1}
 	bx	LR
 .end
 
