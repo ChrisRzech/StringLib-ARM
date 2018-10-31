@@ -1,5 +1,5 @@
 .data
-string:	.asciz	"Hello World this is michael"
+string:	.asciz	"There are 20 characters in this string!!"
 
 .text
 .global	_start
