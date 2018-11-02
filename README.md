@@ -6,9 +6,9 @@ This is a group project that creates a string library. In our class, we use the 
 - [PullusFurtivus](https://github.com/PullusFurtivus)
 
 # Progress
-- string_length.s (done)
-- string_print.s (done)
-- string_equals.s (done)
-- string_toUpperCase.s (done)
-- string_toLowerCase.s (done)
+- [string_length.s (done)](https://github.com/ChrisRzech/RASM-3/blob/master/string/string_length.s)
+- [string_print.s (done)](https://github.com/ChrisRzech/RASM-3/blob/master/string/string_print.s)
+- [string_equals.s (done)](https://github.com/ChrisRzech/RASM-3/blob/master/string/string_equals.s)
+- [string_toUpperCase.s (done)](https://github.com/ChrisRzech/RASM-3/blob/master/string/string_toUpperCase.s)
+- [string_toLowerCase.s (done)](https://github.com/ChrisRzech/RASM-3/blob/master/string/string_toLowerCase.s)
 
