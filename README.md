@@ -9,3 +9,6 @@ This is a group project that creates a string library. In our class, we use the 
 - string_length.s (done)
 - string_print.s (done)
 - string_equals.s (done)
+- string_toUpperCase.s (done)
+- string_toLowerCase.s (done)
+
