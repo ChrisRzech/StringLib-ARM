@@ -1,4 +1,4 @@
-all: start.o v_dec.o string_length.o string_equals.o string_print.o
+all: start.o v_dec.o string_length.o string_equals.o string_print.o toLowerCase.o
 	ld start.o string/*.o v_dec.o -o start
 start.o: start.s
 	as start.s -o start.o -g
@@ -10,5 +10,7 @@ string_equals.o: string/string_equals.s
 	as string/string_equals.s -o string/string_equals.o
 string_print.o: string/string_print.s
 	as string/string_print.s -o string/string_print.o
+toLowerCase.o: string/string_toLowerCase.s
+	as string/string_toLowerCase.s -o string/string_toLowerCase.o
 clean:
 	rm *.o string/*.o start
