@@ -3,12 +3,10 @@
 @ characters in a string @
 @====================@@@@@
 @ Pre-Condition      @
-@--------------------@
 @ R0: n/a            @
 @ R1: String Pointer @
 @====================@
 @ Post-Condition     @
-@--------------------@
 @ R0: String Length  @
 @ R1: String Pointer @
 @@@@@@@@@@@@@@@@@@@@@@
@@ -16,7 +14,6 @@
 string_length:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
-@----------------@
 length .req R0   @
 strPtr .req R1   @
 char   .req R2   @

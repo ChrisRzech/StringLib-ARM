@@ -3,7 +3,6 @@
 @ with a null terminator @
 @====================@@@@@
 @ Pre-Condition      @
-@--------------------@
 @ R1: String Pointer @
 @====================@
 @ Post-Condition     @
