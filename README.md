@@ -4,3 +4,8 @@ This is a group project that creates a string library. In our class, we use the 
 # Contributors
 - [ChrisRzech](https://github.com/ChrisRzech)
 - [PullusFurtivus](https://github.com/PullusFurtivus)
+
+# Progress
+- string_length.s (done)
+- string_print.s  (done)
+- string_equals.s (done)
