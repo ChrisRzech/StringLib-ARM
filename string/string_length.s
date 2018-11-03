@@ -18,7 +18,7 @@ length .req R0   @
 strPtr .req R1   @
 char   .req R2   @
 @@@@@@@@@@@@@@@@@@
-	push	{R1}
+	push	{R1,R2}
 
 	mov	length,#0		@initialize counter
 
@@ -31,7 +31,7 @@ loop:
 	b	loop			@loop back
 
 exit:
-	pop	{R1}
+	pop	{R1,R2}
 	bx	LR
 .end
 

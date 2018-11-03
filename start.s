@@ -1,17 +1,16 @@
 .data
-string1:	.asciz	"hElLo wOrLd!!38@#&*(.\n"
-endl:		.asciz	"\n"
-
+string1:	.asciz	"0123456789\n"
+error:		.asciz	"Error\n"
 
 .text
 .global	_start
 _start:
 	ldr	R1,=string1
 	bl	string_print
-	bl	string_toUpperCase
-	bl	string_print
-	bl	string_toLowerCase
-	bl	string_print
+	
+	mov	R2,#11
+	bl	string_charAt
+	blvc	v_dec
 
 	mov	R7,#1
 	svc	0
