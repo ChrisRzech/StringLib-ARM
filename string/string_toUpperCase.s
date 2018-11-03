@@ -1,15 +1,14 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Overwrites a string in memory @
-@ with a string that is an      @
-@ uppercased version            @
-@====================@@@@@@@@@@@@
-@ Pre-Condition      @
-@ R1: String pointer @
-@====================@
-@ Post-Condition     @
-@ R1: No Change      @
-@@@@@@@@@@@@@@@@@@@@@@
-.global	string_toUpperCase
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Overwrites the given string @
+@ with an uppercase version   @
+@=======================@@@@@@@
+@ Pre-condition         @
+@ R1: String            @
+@=======================@
+@ Post-condition        @
+@ R1: Uppercased string @
+@@@@@@@@@@@@@@@@@@@@@@@@
+.global string_toUpperCase
 string_toUpperCase:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @

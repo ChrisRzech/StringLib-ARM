@@ -1,18 +1,18 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Returns a if two strings  @
-@ are equal, case-sensitive @
-@====================@@@@@@@@
-@ Pre-Condition      @
-@ R0: n/a            @
-@ R1: String Pointer @
-@ R2: String Pointer @
-@====================@
-@ Post-Condition     @
-@ R0: boolean        @
-@ R1: No Change      @
-@ R2: No Change      @
-@@@@@@@@@@@@@@@@@@@@@@
-.global	string_equals
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Checks whether a string is @
+@ equal to another string    @
+@================@@@@@@@@@@@@@
+@ Pre-condition  @
+@ R0: --         @
+@ R1: String A   @
+@ R2: String B   @
+@================@
+@ Post-condition @
+@ R0: Boolean    @
+@ R1: --         @
+@ R2: --         @
+@@@@@@@@@@@@@@@@@@
+.global string_equals
 string_equals:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @

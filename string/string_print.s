@@ -1,13 +1,14 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Prints a string ending @
-@ with a null terminator @
-@====================@@@@@
-@ Pre-Condition      @
-@ R1: String Pointer @
-@====================@
-@ Post-Condition     @
-@ R1: No Change      @
-@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Prints a string until @
+@ a null terminator \0  @
+@ is reached            @
+@================@@@@@@@@
+@ Pre-condition  @
+@ R1: String     @
+@================@
+@ Post-condition @
+@ R1: --         @
+@@@@@@@@@@@@@@@@@@
 .global string_print
 string_print:
 @@@@@@@@@@@@@@@@@@

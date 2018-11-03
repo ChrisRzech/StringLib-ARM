@@ -1,15 +1,14 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Overwrites a string in memory @
-@ with a string that is an      @
-@ uppercased version            @
-@====================@@@@@@@@@@@@
-@ Pre-Condition      @
-@ R1: String pointer @
-@====================@
-@ Post-Condition     @
-@ R1: No Change      @
-@@@@@@@@@@@@@@@@@@@@@@
-.global	string_toLowerCase
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Overwrites the given string @
+@ with a lowercase version    @
+@=======================@@@@@@@
+@ Pre-condition         @
+@ R1: String            @
+@=======================@
+@ Post-condition        @
+@ R1: Lowercased string @
+@@@@@@@@@@@@@@@@@@@@@@@@@
+.global string_toLowerCase
 string_toLowerCase:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @

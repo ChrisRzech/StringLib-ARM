@@ -1,7 +1,8 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Returns a character at a given index. @
-@ If index is greater than length of    @
-@ string, \0 is returned and V-flag set @
+@ If the requested index is larger than @
+@ the string length, overflow flag is   @
+@ set and \0 is returned.               @
 @================@@@@@@@@@@@@@@@@@@@@@@@@
 @ Pre-condition  @
 @ R0: --         @

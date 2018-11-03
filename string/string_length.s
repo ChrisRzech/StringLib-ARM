@@ -1,16 +1,16 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Returns the amount of  @
-@ characters in a string @
-@====================@@@@@
-@ Pre-Condition      @
-@ R0: n/a            @
-@ R1: String Pointer @
-@====================@
-@ Post-Condition     @
-@ R0: String Length  @
-@ R1: String Pointer @
-@@@@@@@@@@@@@@@@@@@@@@
-.global	string_length
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Returns the amount of    @
+@ characters in the string @
+@================@@@@@@@@@@@
+@ Pre-condition  @
+@ R0: --         @
+@ R1: String     @
+@================@
+@ Post-condition @
+@ R0: Length     @
+@ R1: --         @
+@@@@@@@@@@@@@@@@@@
+.global string_length
 string_length:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
