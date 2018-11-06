@@ -1,4 +1,4 @@
-all: start v_dec string_length string_equals string_print string_toLowerCase string_toUpperCase	string_charAt
+all: start v_dec string_length string_equals string_print string_toLowerCase string_toUpperCase	string_charAt string_indexOf_1
 	ld start.o string/*.o v_dec.o -o start
 
 start: start.s
@@ -24,6 +24,9 @@ string_toUpperCase: string/string_toUpperCase.s
 
 string_charAt:	string/string_charAt.s
 	as string/string_charAt.s -o string/string_charAt.o
+
+string_indexOf_1: string/string_indexOf_1.s
+	as string/string_indexOf_1.s -o string/string_indexOf_1.o
 
 clean:
 	rm *.o string/*.o start

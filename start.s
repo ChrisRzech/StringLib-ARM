@@ -5,11 +5,12 @@ error:		.asciz	"Error\n"
 .text
 .global	_start
 _start:
-	ldr	R1,=string1
-	bl	string_print
+	@ldr	R1,=string1
+	@bl	string_print
 	
-	mov	R2,#11
-	bl	string_charAt
+	mov	R2,#'A'
+	ldr	R1,=string1
+	bl	string_indexOf_1
 	blvc	v_dec
 
 	mov	R7,#1
