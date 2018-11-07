@@ -1,16 +1,23 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ @
-@================@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Pre-condition  @
-@ R0: --         @
-@ R1: String     @
-@ R2: Character  @
-@================@
-@ Post-condition @
-@ R0: Index      @
-@ R1: --         @
-@ R2: --         @
-@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Returns the index of the first occurrence @
+@ of a specified character starting at a    @
+@ given index.                              @
+@ If the requested character is not found   @
+@ within the string, overflow flag is set   @
+@ and 0 is returned.                        @
+@====================@@@@@@@@@@@@@@@@@@@@@@@@
+@ Pre-condition      @
+@ R0: --             @
+@ R1: String         @
+@ R2: Character      @
+@ R3: Starting Index @
+@====================@
+@ Post-condition     @
+@ R0: Index          @
+@ R1: --             @
+@ R2: --             @
+@ R3: --             @
+@@@@@@@@@@@@@@@@@@@@@@
 .global string_indexOf_2
 string_indexOf_2:
 @@@@@@@@@@@@@@@@@@
@@ -23,7 +30,7 @@ char     .req R3 @
 count    .req R4 @
 length   .req R5 @
 @@@@@@@@@@@@@@@@@@
-	push	{R1-R5}
+	push	{R1-R5,LR}
 
 	bl	string_length
 	mov	length,R0
@@ -56,6 +63,6 @@ error:
 
 exit_loop:
 	mov	index,count
-	pop	{R1-R5}
+	pop	{R1-R5,LR}
 	bx	LR
 .end
