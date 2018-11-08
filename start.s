@@ -10,7 +10,7 @@ _start:
 	mov	R2,#'5'
 	mov	R3,#6
 	bl	string_lastIndexOf_2
-	blvc	v_dec
+	bl	v_dec
 
 
 
