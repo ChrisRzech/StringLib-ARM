@@ -22,7 +22,7 @@ strPtr2 .req R2  @
 char1   .req R3  @
 char2   .req R4  @
 @@@@@@@@@@@@@@@@@@
-	push	{R1-R5}
+	push	{R1-R4}
 
 	mov	equals,#1		@initialize boolean
 
@@ -40,7 +40,7 @@ loop:
 	b	loop
 
 exit:
-	pop	{R1-R5}
+	pop	{R1-R4}
 	bx	LR
 .end
 
