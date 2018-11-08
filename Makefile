@@ -1,4 +1,4 @@
-all: start v_dec string_length string_equals string_print string_toLowerCase string_toUpperCase	string_charAt string_indexOf_1 string_indexOf_2 string_replace
+all: start v_dec string_length string_equals string_print string_toLowerCase string_toUpperCase	string_charAt string_indexOf_1 string_indexOf_2 string_replace string_lastIndexOf_1
 	ld start.o string/*.o v_dec.o -o start
 
 start: start.s
@@ -33,6 +33,9 @@ string_indexOf_2: string/string_indexOf_2.s
 
 string_replace: string/string_replace.s
 	as string/string_replace.s -o string/string_replace.o
+
+string_lastIndexOf_1: string/string_lastIndexOf_1.s
+	as string/string_lastIndexOf_1.s -o string/string_lastIndexOf_1.o
 
 clean:
 	rm *.o string/*.o start
