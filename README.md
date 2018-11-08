@@ -13,3 +13,5 @@ This is a group project that creates a string library. In our class, we use the 
 - [string_toLowerCase](string/string_toLowerCase.s) (ChrisRzech)
 - [string_charAt](string/string_charAt.s) (ChrisRzech)
 - [string_indexOf_1](string/string_indexOf_1.s) (PullusFurtivus)
+- [string_indexOf_2](string/string_indexOf_2.s) (PullusFurtivus)
+- [string_replace](string/string_replace.s) (PullusFurtivus)
