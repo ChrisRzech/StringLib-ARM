@@ -7,8 +7,9 @@ error:		.asciz	"Error\n"
 _start:
 
 	ldr	R1,=string1
-	mov	R2,#'A'
-	bl	string_lastIndexOf_1
+	mov	R2,#'5'
+	mov	R3,#6
+	bl	string_lastIndexOf_2
 	blvc	v_dec
 
 

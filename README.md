@@ -6,7 +6,7 @@ This is a group project that creates a string library. In our class, we use the 
 - [PullusFurtivus](https://github.com/PullusFurtivus)
 
 # Finished Functions
-- [string_length](string/string_length.s) (ChrisRzech)
+- [string_length](string/string_length.s) (ChrisRzech)(PullusFurtivus)
 - [string_print](string/string_print.s) (ChrisRzech)
 - [string_equals](string/string_equals.s) (ChrisRzech)
 - [string_toUpperCase](string/string_toUpperCase.s) (ChrisRzech)
@@ -15,3 +15,5 @@ This is a group project that creates a string library. In our class, we use the 
 - [string_indexOf_1](string/string_indexOf_1.s) (PullusFurtivus)
 - [string_indexOf_2](string/string_indexOf_2.s) (PullusFurtivus)
 - [string_replace](string/string_replace.s) (PullusFurtivus)
+- [string_lastIndexOf_1](string/string_lastIndexOf_1.s) (PullusFurtivus)
+- [string_lastIndexOf_2](string/string_lastIndexOf_2.s) (PullusFurtivus)

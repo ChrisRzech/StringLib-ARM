@@ -26,7 +26,7 @@ char	.req R2  @
 count	.req R4	 @
 length  .req R4  @
 @@@@@@@@@@@@@@@@@@
-	push	{R1-R3,LR}
+	push	{R1-R4,LR}
 
 	bl	string_length
 	mov	length,R0
@@ -56,6 +56,6 @@ not_found:
 
 exit_loop:
 	mov	index,count		@sets the index and exits.
-	pop	{R1-R3,LR}
+	pop	{R1-R4,LR}
 	bx	LR	
 .end
