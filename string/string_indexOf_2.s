@@ -37,7 +37,7 @@ length   .req R5 @
 	mov	count,strIndex
 
 	cmp	length,strIndex
-	bcc	error
+	bls	error
 
 	add	strPtr,strIndex
 	
