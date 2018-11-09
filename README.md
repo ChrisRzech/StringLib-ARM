@@ -17,3 +17,6 @@ This is a group project that creates a string library. In our class, we use the 
 - [string_replace](string/string_replace.s) (PullusFurtivus)
 - [string_lastIndexOf_1](string/string_lastIndexOf_1.s) (PullusFurtivus)
 - [string_lastIndexOf_2](string/string_lastIndexOf_2.s) (PullusFurtivus)
+- [string_startsWith_1](string/string_startsWith_1.s) (ChrisRzech)
+- [string_startsWith_2](string/string_startsWith_2.s) (ChrisRzech)
+- [string_indexOf_3](string/string_indexOf_3.s) (ChrisRzech)
