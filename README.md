@@ -27,8 +27,3 @@ This is a group project that creates a string library. In our class, we use the 
 19. [substring_2](string/string_substring_2.s)
 20. [toLowerCase](string/string_toLowerCase.s) (ChrisRzech)
 21. [toUpperCase](string/string_toUpperCase.s) (ChrisRzech)
-
-
-
-- [string_toUpperCase](string/string_toUpperCase.s) (ChrisRzech)
-- [string_toLowerCase](string/string_toLowerCase.s) (ChrisRzech)
