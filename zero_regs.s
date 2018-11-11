@@ -7,7 +7,6 @@
 @ Post-condition @
 @ All: 0         @
 @@@@@@@@@@@@@@@@@@
-.text
 .global zero_regs
 zero_regs:
 	mov	R0,#0
