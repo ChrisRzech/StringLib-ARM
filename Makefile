@@ -1,53 +1,13 @@
-all: start v_dec string_length string_equals string_print string_toLowerCase string_toUpperCase	string_charAt string_indexOf_1 string_indexOf_2 string_indexOf_3 string_replace string_lastIndexOf_1 string_lastIndexOf_2 string_startsWith_1 string_startsWith_2
-	ld start.o string/*.o v_dec.o -o start
+NAME = start
+FLAGS = -g
+SRC = $(wildcard *.s) $(wildcard string/*.s) $(wildcard string/helpers/*.s)
+OBJ = $(SRC:.s=.o)
 
-start: start.s
-	as start.s -o start.o -g
+all: $(OBJ)
+	ld *.o string/*.o string/helpers/*.o /usr/lib/arm-linux-gnueabihf/libc.so -dynamic-linker /lib/ld-linux-armhf.so.3 -o $(NAME)
 
-v_dec: v_dec.s
-	as v_dec.s -o v_dec.o -g
-
-string_length: string/string_length.s
-	as string/string_length.s -o string/string_length.o -g
-
-string_equals: string/string_equals.s
-	as string/string_equals.s -o string/string_equals.o -g
-
-string_print: string/string_print.s
-	as string/string_print.s -o string/string_print.o -g
-	
-string_toLowerCase: string/string_toLowerCase.s
-	as string/string_toLowerCase.s -o string/string_toLowerCase.o -g
-
-string_toUpperCase: string/string_toUpperCase.s
-	as string/string_toUpperCase.s -o string/string_toUpperCase.o -g
-
-string_charAt:	string/string_charAt.s
-	as string/string_charAt.s -o string/string_charAt.o -g
-
-string_indexOf_1: string/string_indexOf_1.s
-	as string/string_indexOf_1.s -o string/string_indexOf_1.o -g
-
-string_indexOf_2: string/string_indexOf_2.s
-	as string/string_indexOf_2.s -o string/string_indexOf_2.o -g
-
-string_indexOf_3: string/string_indexOf_3.s
-	as string/string_indexOf_3.s -o string/string_indexOf_3.o -g
-
-string_replace: string/string_replace.s
-	as string/string_replace.s -o string/string_replace.o -g
-
-string_lastIndexOf_1: string/string_lastIndexOf_1.s
-	as string/string_lastIndexOf_1.s -o string/string_lastIndexOf_1.o -g
-
-string_lastIndexOf_2: string/string_lastIndexOf_2.s
-	as string/string_lastIndexOf_2.s -o string/string_lastIndexOf_2.o -g
-
-string_startsWith_1: string/string_startsWith_1.s
-	as string/string_startsWith_1.s -o string/string_startsWith_1.o -g
-
-string_startsWith_2: string/string_startsWith_2.s
-	as string/string_startsWith_2.s -o string/string_startsWith_2.o -g
+%.o: $.s
+	as $.s -o $.o $(FLAGS)
 
 clean:
-	rm *.o string/*.o start
+	rm *.o string/*.o string/helpers/*.o $(NAME)
