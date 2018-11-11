@@ -14,7 +14,7 @@ This is a group project that creates a string library. In our class, we use the 
 6. [equalsIgnoreCase](string/string_equalsIgnoreCase.s)
 7. [indexOf_1](string/string_indexOf_1.s) (PullusFurtivus)
 8. [indexOf_2](string/string_indexOf_2.s) (PullusFurtivus)
-9. [indexOf_2](string/string_indexOf_2.s) (ChrisRzech)
+9. [indexOf_3](string/string_indexOf_3.s) (ChrisRzech)
 10. [lastIndexOf_1](string/string_lastIndexOf_1.s) (PullusFurtivus)
 11. [lastIndexOf_2](string/string_lastIndexOf_2.s) (PullusFurtivus)
 12. [lastIndexOf_3](string/string_lastIndexOf_3.s)
