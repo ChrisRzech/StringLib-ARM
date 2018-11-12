@@ -54,10 +54,7 @@ loop:
 	b	loop
 
 error:
-	mov	R0,#0x80000000
-	subs	R0,#1			@Flags set: C V
-	mov	R0,#2
-	asrs	R0,#1			@Flags set: V
+	bl	string_set_ovfl
 	mov	count,#0
 	b	exit_loop
 
