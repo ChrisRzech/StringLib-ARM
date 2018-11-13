@@ -11,7 +11,7 @@ This is a group project that creates a string library. In our class, we use the 
 3. [copy](string/string_copy.s) (ChrisRzech)
 4. [endsWith](string/string_endsWith.s)
 5. [equals](string/string_equals.s) (ChrisRzech)
-6. [equalsIgnoreCase](string/string_equalsIgnoreCase.s)
+6. [equalsIgnoreCase](string/string_equalsIgnoreCase.s) (ChrisRzech)
 7. [indexOf_1](string/string_indexOf_1.s) (PullusFurtivus)
 8. [indexOf_2](string/string_indexOf_2.s) (PullusFurtivus)
 9. [indexOf_3](string/string_indexOf_3.s) (ChrisRzech)
