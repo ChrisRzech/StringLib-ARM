@@ -1,8 +1,8 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Checks whether a string is equal @
-@ to another string.               @
-@ Not case-sensitive               @
-@================@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Checks whether a string is @
+@ equal to another string.   @
+@ Not case-sensitive         @
+@================@@@@@@@@@@@@@
 @ Pre-condition  @
 @ R0: --         @
 @ R1: String A   @
