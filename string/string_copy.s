@@ -22,7 +22,6 @@ char   .req R2   @
 	push	{R1,R2,LR}
 
 	bl	string_length		@R0 = string length
-	add	length,#1		@increment R0
 	bl	string_malloc		@R0 = newStr
 	push	{R0}			@push newStr to stack
 
