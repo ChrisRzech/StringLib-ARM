@@ -32,7 +32,7 @@ index  .req R4   @
 loop:
 	ldrb	char,[strPtr]		@R0 = *strPtr
 	cmp	char,#0			@if(R0 == \0) return
-	beq	exit
+	beq	not_found
 	
 	bl	string_startsWith_1
 	cmp	found,#1		@if(found) return

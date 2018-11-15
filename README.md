@@ -18,7 +18,7 @@ This is a group project that creates a string library. In our class, we use the 
 10. [input](string/string_input.s) (ChrisRzech)
 11. [lastIndexOf_1](string/string_lastIndexOf_1.s) (PullusFurtivus)
 12. [lastIndexOf_2](string/string_lastIndexOf_2.s) (PullusFurtivus)
-13. [lastIndexOf_3](string/string_lastIndexOf_3.s)
+13. [lastIndexOf_3](string/string_lastIndexOf_3.s) (PullusFurtivus)
 14. [length](string/string_length.s) (ChrisRzech & PullusFurtivus)
 15. [print](string/string_print.s) (ChrisRzech)
 16. [replace](string/string_replace.s) (PullusFurtivus)
