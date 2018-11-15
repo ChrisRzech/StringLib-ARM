@@ -41,35 +41,11 @@ subLng .req R6   @
 	mov	strLng,R0
 	mov	found,#0		@ setting found to false
 
-	sub	strLng,#1
-	sub	subLng,#1
-	add	string,strLng		@ starting at the end of the string and substr
-	add	substr,subLng
+	sub	strLng,subLng
+	mov	R3,strLng
+	bl	string_startsWith_2
+
 	
-loop:
-	ldrb	char1,[string]		@ Loading byte into char1 and char2
-	ldrb	char2,[substr]
-
-	cmp	char2,#0		@ if(char2 == \0) exit
-	moveq	found,#1
-	beq	exit
-
-	cmp	char1,#0		@ if(char1 == \0) exit
-	beq	exit
-
-	cmp	char1,char2		@ checking if they are not equal
-	bne	not_found
-
-	sub	substr,#1		@ moving one byte over
-	sub	string,#1		
-		
-	b	loop
-not_found:
-	mov	found,#0		@ setting false if not found
-	b	exit
-found:
-	mov	found,#1		@ setting true if found
-	b	exit
 exit:
 	pop	{R0-R6,LR}
 	bx	LR

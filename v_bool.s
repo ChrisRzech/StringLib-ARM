@@ -32,6 +32,4 @@ Error:
 
 end:
 	pop	{R1}
-	mov	R7,#1
-	svc	0
 .end
