@@ -7,7 +7,7 @@ error:	.asciz	"Error"
 .global	v_bool
 v_bool:
 
-	push	{R1}
+	push	{R1,LR}
 
 	cmp	R0,#0
 	beq	False
@@ -31,5 +31,6 @@ Error:
 	b	end
 
 end:
-	pop	{R1}
+	pop	{R1,LR}
+	bx	LR
 .end

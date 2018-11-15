@@ -26,28 +26,26 @@ char2  .req R4   @
 strLng .req R5   @
 subLng .req R6   @
 @@@@@@@@@@@@@@@@@@
-	push	{R0-R6,LR}
+	push	{R1-R6,LR}
 
-	mov	R6,string		@ Switching the substr with string
+	mov	R5,string		@ Switching the substr with string
 	mov	R1,substr
 
 	bl	string_length		@ getting length of substr
 	mov	subLng,R0
 
-	mov	substr,R1		@ putting string and substr back
-	mov	string,R6
+		
+	mov	string,R5		@ putting string and substr back
 
 	bl	string_length		@ getting length of string
 	mov	strLng,R0
-	mov	found,#0		@ setting found to false
 
-	sub	strLng,subLng
-	mov	R3,strLng
+	sub	R3,strLng,subLng
 	bl	string_startsWith_2
 
 	
 exit:
-	pop	{R0-R6,LR}
+	pop	{R1-R6,LR}
 	bx	LR
 .end
 
