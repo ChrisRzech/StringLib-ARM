@@ -7,7 +7,7 @@ This is a group project that creates a string library. In our class, we use the 
 
 # Functions
 1. [charAt](string/string_charAt.s) (ChrisRzech)
-2. [concat](string/string_concat.s)
+2. [concat](string/string_concat.s) (ChrisRzech)
 3. [copy](string/string_copy.s) (ChrisRzech)
 4. [endsWith](string/string_endsWith.s)	(PullusFurtivus)
 5. [equals](string/string_equals.s) (ChrisRzech)
