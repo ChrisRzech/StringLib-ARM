@@ -20,9 +20,9 @@
 string_lastIndexOf_1:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
-index 	 .req R0 @
-string	 .req R1 @
-char	 .req R2 @
+index    .req R0 @
+string   .req R1 @
+char     .req R2 @
 charLoad .req R3 @
 @@@@@@@@@@@@@@@@@@
 	push	{R1-R4,LR}

@@ -1,10 +1,10 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Returns the index of the first 	 @
+@ Returns the index of the first         @
 @ occurrence of a specified character    @
 @                                        @
 @ If the requested character isn't found @
-@ within the string, the overflow flag	 @
-@ is set and -1 is returned 		 @
+@ within the string, the overflow flag   @
+@ is set and -1 is returned              @
 @================@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Pre-condition  @
 @ R0: --         @
@@ -20,9 +20,9 @@
 string_indexOf_1:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
-index 	 .req R0 @
-string	 .req R1 @
-char	 .req R2 @
+index    .req R0 @
+string   .req R1 @
+char     .req R2 @
 charLoad .req R3 @
 @@@@@@@@@@@@@@@@@@
 	push 	{R1-R3,LR}
