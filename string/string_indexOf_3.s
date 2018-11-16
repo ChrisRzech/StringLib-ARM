@@ -1,9 +1,10 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Returns the index of the first occurrence @
-@ of a specified substring.                 @
+@ of a specified substring                  @
+@                                           @
 @ If the requested substring is not found   @
 @ within the string, overflow flag is set   @
-@ and 0 is returned.                        @
+@ and -1 is returned                        @
 @================@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Pre-condition  @
 @ R0: --         @
@@ -44,7 +45,7 @@ loop:
 
 not_found:
 	bl	string_set_ovfl
-	mov	R0,#0
+	mov	index,#-1
 	b	exit
 
 exit:

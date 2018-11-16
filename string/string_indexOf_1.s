@@ -1,9 +1,10 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Returns the index of the first 	 @
-@ occurrence of a specified character.   @
+@ occurrence of a specified character    @
+@                                        @
 @ If the requested character isn't found @
 @ within the string, the overflow flag	 @
-@ is set and \0 is returned.		 @
+@ is set and -1 is returned 		 @
 @================@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Pre-condition  @
 @ R0: --         @
@@ -19,33 +20,33 @@
 string_indexOf_1:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
-index 	.req R0  @
-chLoad	.req R0	 @
-strPtr	.req R1	 @
-char	.req R2  @
-count	.req R3	 @
+index 	 .req R0 @
+string	 .req R1 @
+char	 .req R2 @
+charLoad .req R3 @
 @@@@@@@@@@@@@@@@@@
-	push 	{R1-R3}
+	push 	{R1-R3,LR}
 
-	mov	count,#0
+	mov	index,#0
+
 loop:
-	ldrb	chLoad,[strPtr],#1	@load in a character (byte)
-	cmp	chLoad,#0		@checks for end of string
-	beq	not_found		@branches if the char isn't found at end of string
+	ldrb	charLoad,[string],#1	@load in a character (byte)
+	cmp	charLoad,#0
+	beq	not_found		@if(chLoad == \0) not found
 
-	cmp	chLoad,char		@checks for matching character
-	beq	exit_loop		@exits the loop
+	cmp	charLoad,char
+	beq	exit			@if(chLoad == char) return
 
-	adds	count,#1		@increments count and loops
+	adds	index,#1		@increments index
 	b	loop
 
 not_found:
 	bl	string_set_ovfl
-	mov	count,#0		@count set to \0
-	b	exit_loop		@Exits loop
+	mov	index,#-1
+	b	exit
 
-exit_loop:
-	mov	index,count		@sets the index and exits.
-	pop	{R1-R3}
+exit:
+	pop	{R1-R3,LR}
 	bx	LR	
 .end
+

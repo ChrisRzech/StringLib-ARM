@@ -1,11 +1,12 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Returns the index of the last  occurrence @
-@ of a specified character starting at a    @
-@ given index.                              @
-@ If the requested character is not found   @
-@ within the string, overflow flag is set   @
-@ and 0 is returned.                        @
-@====================@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Returns the index of the last occurrence @
+@ of a specified character starting at a   @
+@ given index                              @
+@                                          @
+@ If the requested character is not found  @
+@ within the string, overflow flag is set  @
+@ and -1 is returned                       @
+@====================@@@@@@@@@@@@@@@@@@@@@@@
 @ Pre-condition      @
 @ R0: --             @
 @ R1: String         @
@@ -20,43 +21,32 @@
 @@@@@@@@@@@@@@@@@@@@@@
 .global string_lastIndexOf_2
 string_lastIndexOf_2:
-@@@@@@@@@@@@@@@@@@
-@ Register Alias @
-index    .req R0 @
-chLoad   .req R0 @
-strPtr   .req R1 @
-strIndex .req R3 @
-char     .req R2 @
-count    .req R4 @
-length   .req R4 @
-@@@@@@@@@@@@@@@@@@
-	push	{R1-R4,LR}
+@@@@@@@@@@@@@@@@@@@@
+@ Register Alias   @
+index      .req R0 @
+length     .req R0 @
+string     .req R1 @
+startIndex .req R3 @
+@@@@@@@@@@@@@@@@@@@@
+	push	{R1-R3,LR}
 
-	bl	string_length
-	mov	length,R0
-	
-	sub	length,#1
-	add	strPtr,length
+	bl	string_length		@length/R0 = string.length()
 
-loop:
-	ldrb	chLoad,[strPtr]
-	cmp	count,strIndex
-	beq	not_found
-	sub	strPtr,#1
+	cmp	startIndex,length
+	bhs	bad_index		@if(startIndex >= length) bad index
 
-	cmp	chLoad,char
-	beq	exit_loop
-	sub	length,#1
 
-	b	loop
+	add	string,startIndex	@string += startIndex
+	bl	string_lastIndexOf_1	@R0 = index where character was found
+	addvc	index,startIndex	@if(v-flag == 0) index += startIndex
+	b	exit
 
-not_found:
+bad_index:
 	bl	string_set_ovfl
-	mov	count,#0		@count set to \0
-	b	exit_loop		@Exits loop
+	mov	index,#-1
+	b	exit
 
-exit_loop:
-	mov	index,count		@sets the index and exits.
-	pop	{R1-R4,LR}
+exit:
+	pop	{R1-R3,LR}
 	bx	LR	
 .end

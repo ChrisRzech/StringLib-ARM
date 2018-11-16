@@ -1,10 +1,11 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @ Returns the index of the first occurrence @
 @ of a specified character starting at a    @
-@ given index.                              @
+@ given index                               @
+@                                           @
 @ If the requested character is not found   @
 @ within the string, overflow flag is set   @
-@ and 0 is returned.                        @
+@ and -1 is returned                        @
 @====================@@@@@@@@@@@@@@@@@@@@@@@@
 @ Pre-condition      @
 @ R0: --             @
@@ -20,46 +21,31 @@
 @@@@@@@@@@@@@@@@@@@@@@
 .global string_indexOf_2
 string_indexOf_2:
-@@@@@@@@@@@@@@@@@@
-@ Register Alias @
-index    .req R0 @
-chLoad   .req R0 @
-strPtr   .req R1 @
-strIndex .req R2 @
-char     .req R3 @
-count    .req R4 @
-length   .req R5 @
-@@@@@@@@@@@@@@@@@@
-	push	{R1-R5,LR}
+@@@@@@@@@@@@@@@@@@@@
+@ Register Alias   @
+index      .req R0 @
+length     .req R0 @
+string     .req R1 @
+startIndex .req R3 @
+@@@@@@@@@@@@@@@@@@@@
+	push	{R1,R3,LR}
 
-	bl	string_length
-	mov	length,R0
-	mov	count,strIndex
+	bl	string_length		@R0 = string.length()
 
-	cmp	length,strIndex
-	bls	error
+	cmp	startIndex,length
+	bhs	bad_index		@if(startIndex >= length) bad index		
 
-	add	strPtr,strIndex
+	add	string,startIndex	@string += startIndex
 	
-loop:
-	ldrb	chLoad,[strPtr],#1
-	cmp	chLoad,#0
-	beq	error
+	bl	string_indexOf_1
+	b	exit
 
-	
-	cmp	chLoad,char
-	beq	exit_loop
-
-	add	count,#1
-	b	loop
-
-error:
+bad_index:
 	bl	string_set_ovfl
-	mov	count,#0
-	b	exit_loop
+	mov	index,#-1
+	b	exit
 
-exit_loop:
-	mov	index,count
-	pop	{R1-R5,LR}
+exit:
+	pop	{R1,R3,LR}
 	bx	LR
 .end
