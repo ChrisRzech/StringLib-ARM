@@ -1,25 +1,40 @@
-.global	v_dec
+@@@@@@@@@@@@@@@@@@@@@@@@
+@ Displays a number in @
+@ decimal (base 10)    @
+@================@@@@@@@
+@ Pre-Condition  @
+@ R0: Number     @
+@================@
+@ Post-Condition @
+@ R0: --         @
+@@@@@@@@@@@@@@@@@@
+.data
+pow10:	.word	1		@10^0
+	.word	10
+	.word	100
+	.word	1000		@10^3 (thousand)
+	.word	10000
+	.word	100000
+	.word	1000000		@10^6 (million)
+	.word	10000000
+	.word	100000000
+	.word	1000000000	@10^9 (billion)
+	.word	0x7FFFFFFF	@largest integer in 31bits
+dig:	.ascii	"0123456789"	@digits
+msign:	.ascii	"-"
+comma:	.ascii	","
+
+.global v_dec
 v_dec:
-@@@@@@@@@@@@@@@@@@@@@@@@
-@ v_dec:               @
-@ This subroutine will @
-@ output a register 0  @
-@ in decimal (base 10) @
-@@@@@@@@@@@@@@@@@@@@@@@@
-@ Pre-Condition:       @
-@ R0: Input to display @
-@----------------------@
-@ Post-Condition:      @
-@ R0: No Change        @
-@@@@@@@@@@@@@@@@@@@@@@@@
-@ Register Aliases:    @
-outcode .req R0	       @ 1
-strptr  .req R1	       @ ptr to "0123456789" string
-outsize .req R2	       @ 1
-inword  .req R3	       @ number to output
-svccode .req R7	       @ 4
-digcnt  .req R9        @ number of digits
-@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@
+@ Register Aliases @
+outcode .req R0	   @ 1
+strptr  .req R1	   @ ptr to "0123456789" string
+outsize .req R2	   @ 1
+inword  .req R3	   @ number to output
+svccode .req R7	   @ 4
+digcnt  .req R9    @ number of digits
+@@@@@@@@@@@@@@@@@@@@
 	push	{R0-R7}
 	
 @load all const registers
@@ -95,43 +110,7 @@ onecol:	ldr	strptr,=dig	@point to digit string
 	svc	0		@output
 
 
-@@@@@@@@@@@@@@@@@@@@@@@@
-@ Register Unalias:    @
-.unreq	outcode        @
-.unreq	strptr         @
-.unreq	outsize        @
-.unreq	inword         @
-.unreq	svccode        @
-@@@@@@@@@@@@@@@@@@@@@@@@
 	pop	{R0-R7}
 	bx	LR
-
-
-
-.data
-@@@@@@@@@@@@@@@@@@@@@@@@
-@ Powers of 10 Table   @
-@@@@@@@@@@@@@@@@@@@@@@@@
-pow10:	.word	1		@10^0
-	.word	10
-	.word	100
-	.word	1000		@10^3 (thousand)
-	.word	10000
-	.word	100000
-	.word	1000000		@10^6 (million)
-	.word	10000000
-	.word	100000000
-	.word	1000000000	@10^9 (billion)
-	.word	0x7FFFFFFF	@largest integer in 31bits
-
-@@@@@@@@@@@@@@@@@@@@@@@@
-@ Digits String        @
-@@@@@@@@@@@@@@@@@@@@@@@@
-dig:	.ascii	"0123456789"	@digits
-
-
-msign:	.ascii	"-"
-comma:	.ascii	","
-
-endl:	.ascii	"\n"
 .end
+
