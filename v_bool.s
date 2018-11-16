@@ -6,31 +6,20 @@ error:	.asciz	"Error"
 .text
 .global	v_bool
 v_bool:
-
 	push	{R1,LR}
 
 	cmp	R0,#0
-	beq	False
+	ldreq	R1,=false
+	beq	exit
 	cmp	R0,#1
-	beq	True
-	bne	Error
-
-False:
-	ldr	R1,=false
-	bl	string_print
-	b	end
-
-True:
-	ldr	R1,=true
-	bl	string_print
-	b	end
-
-Error:
-	ldr	R1,=error
-	bl	string_print
-	b	end
+	ldreq	R1,=true
+	ldrne	R1,=error
+	b	exit
 
 end:
+	bl	string_print
+
 	pop	{R1,LR}
 	bx	LR
 .end
+
