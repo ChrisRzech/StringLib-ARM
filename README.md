@@ -24,7 +24,7 @@ This is a group project that creates a string library. In our class, we use the 
 16. [replace](string/string_replace.s) (PullusFurtivus)
 17. [startsWith_1](string/string_startsWith_1.s) (ChrisRzech)
 18. [startsWith_2](string/string_startsWith_2.s) (ChrisRzech)
-19. [substring_1](string/string_substring_1.s)
+19. [substring_1](string/string_substring_1.s) (ChrisRzech)
 20. [substring_2](string/string_substring_2.s)
 21. [toLowerCase](string/string_toLowerCase.s) (ChrisRzech)
 22. [toUpperCase](string/string_toUpperCase.s) (ChrisRzech)
