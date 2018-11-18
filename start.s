@@ -1,9 +1,9 @@
 .data
 .equ	BUFSIZE,256
-			@specific tests for this driver
-str1:	.space	BUFSIZE	@"Cat in the hat."
-str2:	.space	BUFSIZE	@"Green eggs and ham."
-str3:	.space	BUFSIZE	@"cat in the hat."
+				@specific tests for this driver
+str1:	.space	BUFSIZE		@"Cat in the hat."
+str2:	.space	BUFSIZE		@"Green eggs and ham."
+str3:	.space	BUFSIZE		@"cat in the hat."
 
 Cat:		.asciz	"Cat"
 hat:		.asciz	"hat."
@@ -15,33 +15,34 @@ prompt1:	.asciz	"str1: "
 prompt2:	.asciz	"str2: "
 prompt3:	.asciz	"str3: "
 
-part1:	.asciz	" 1. string lengths.  .  .  .  .  .  "
-part2a:	.asciz	"2a. equals(str1,str3).  .  .  .  .  "
-part2b:	.asciz	"2b. equals(str1,str1).  .  .  .  .  "
-part3a:	.asciz	"3a. equalsIgnoreCase(str1,str3)  .  "
-part3b:	.asciz	"3b. equalsIgnoreCase(str1,str2)  .  "
-part4:	.asciz	" 4. copy(str1) .  .  .  .  .  .  .  "
-part5:	.asciz	" 5. substring_1(str3,4,13) .  .  .  "
-part6:	.asciz	" 6. substring_2(str3,7) .  .  .  .  "
-part7:	.asciz	" 7. charAt(str2,4).  .  .  .  .  .  "
-part8:	.asciz	" 8. startsWith_2(str1,11,\"hat.\") .  "
-part9:	.asciz	" 9. startsWith_1(str1,\"Cat\")  .  .  "
-part10:	.asciz	"10. endsWith(str1,\"in the hat.\") .  "
-part11:	.asciz	"11. indexOf_1(str2,'g') .  .  .  .  "
-part12:	.asciz	"12. indexOf_2(str2,'g',9)  .  .  .  "
-part13:	.asciz	"13. indexOf_3(str2,\"eggs\") .  .  .  "
-part14:	.asciz	"14. lastIndexOf_1(str2,'g').  .  .  "
-part15:	.asciz	"15. lastIndexOf_2(str2,'g',9) .  .  "
-part16:	.asciz	"16. lastIndexOf_3(str2,\"egg\") .  .  "
-part17:	.asciz	"17. replace(str1,'C','B')  .  .  .  "
-part18:	.asciz	"18. toLowerCase(str1).  .  .  .  .  "
-part19:	.asciz	"19. toUppwerCase(str1)  .  .  .  .  "
-part20:	.asciz	"20. concat(str1,\" \" + str2).  .  .  "
+part1:  .asciz	" 1. string lengths.  .  .  .  .  .  "
+part2a: .asciz	"2a. equals(str1,str3).  .  .  .  .  "
+part2b: .asciz	"2b. equals(str1,str1).  .  .  .  .  "
+part3a: .asciz	"3a. equalsIgnoreCase(str1,str3)  .  "
+part3b: .asciz	"3b. equalsIgnoreCase(str1,str2)  .  "
+part4:  .asciz	" 4. copy(str1) .  .  .  .  .  .  .  "
+part5:  .asciz	" 5. substring_1(str3,4,13) .  .  .  "
+part6:  .asciz	" 6. substring_2(str3,7) .  .  .  .  "
+part7:  .asciz	" 7. charAt(str2,4).  .  .  .  .  .  "
+part8:  .asciz	" 8. startsWith_2(str1,11,\"hat.\") .  "
+part9:  .asciz	" 9. startsWith_1(str1,\"Cat\")  .  .  "
+part10: .asciz	"10. endsWith(str1,\"in the hat.\") .  "
+part11: .asciz	"11. indexOf_1(str2,'g') .  .  .  .  "
+part12: .asciz	"12. indexOf_2(str2,'g',9)  .  .  .  "
+part13: .asciz	"13. indexOf_3(str2,\"eggs\") .  .  .  "
+part14: .asciz	"14. lastIndexOf_1(str2,'g').  .  .  "
+part15: .asciz	"15. lastIndexOf_2(str2,'g',9) .  .  "
+part16: .asciz	"16. lastIndexOf_3(str2,\"egg\") .  .  "
+part17: .asciz	"17. replace(str1,'C','B')  .  .  .  "
+part18: .asciz	"18. toLowerCase(str1).  .  .  .  .  "
+part19: .asciz	"19. toUppwerCase(str1)  .  .  .  .  "
+part20: .asciz	"20. concat(str1,\" \" + str2).  .  .  "
 
 .text
 .global _start
 _start:
 	bl	zero_regs		@all registers = 0
+
 
 @Input str1
 	ldr	R1,=prompt1
