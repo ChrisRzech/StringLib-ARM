@@ -26,7 +26,7 @@ v_bool:
 	ldrne	R1,=error	@else R1 = error
 	b	exit
 
-end:
+exit:
 	bl	string_print
 
 	pop	{R1,LR}
