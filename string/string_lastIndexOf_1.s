@@ -25,7 +25,7 @@ string   .req R1 @
 char     .req R2 @
 charLoad .req R3 @
 @@@@@@@@@@@@@@@@@@
-	push	{R1-R4,LR}
+	push	{R1-R3,LR}
 
 	bl	string_length		@R0 = string.length()
 	sub	index,#1		@index = string.length() - 1
@@ -33,21 +33,21 @@ charLoad .req R3 @
 
 loop:
 	ldrb	charLoad,[string],#-1
-	cmp	index,#0
-	blt	not_found		@if(index < 0) not found
+
+	cmp	index,#-1
+	beq	not_found		@if(index == -1) not found
 
 	cmp	charLoad,char
-	beq	exit			@if(charLoad == char) return
-	sub	index,#1		@decrement index
+	beq	return			@if(charLoad == char) return
 
+	sub	index,#1
 	b	loop
 
 not_found:
 	bl	string_set_ovfl
 	mov	index,#-1
-	b	exit
 
-exit:
-	pop	{R1-R4,LR}
+return:
+	pop	{R1-R3,LR}
 	bx	LR	
 .end

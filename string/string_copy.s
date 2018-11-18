@@ -15,27 +15,26 @@ string_copy:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
 newStr .req R0   @
-length .req R0   @
 string .req R1   @
 char   .req R2   @
 @@@@@@@@@@@@@@@@@@
 	push	{R1,R2,LR}
 
-	bl	string_length		@R0 = string length
+	bl	string_length		@R0 = string.length()
 	bl	string_malloc		@R0 = newStr
-	push	{R0}			@push newStr to stack
+	push	{R0}			@save newStr
 
 loop:
-	ldrb	char,[string],#1	@load in a character
+	ldrb	char,[string],#1
 	
 	cmp	char,#0
-	beq	exit			@if(char == \0) exit
+	beq	return			@if(char == \0) return
 	
-	strb	char,[newStr],#1	@store the character
+	strb	char,[newStr],#1
 	b	loop
 
-exit:
-	pop	{R0}			@pop newStr off stack
+return:
+	pop	{R0}			@load newStr
 	pop	{R1,R2,LR}
 	bx	LR
 .end

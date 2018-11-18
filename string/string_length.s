@@ -15,7 +15,7 @@ string_length:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
 length .req R0   @
-strPtr .req R1   @
+string .req R1   @
 char   .req R2   @
 @@@@@@@@@@@@@@@@@@
 	push	{R1,R2}
@@ -23,14 +23,15 @@ char   .req R2   @
 	mov	length,#0		@initialize counter
 
 loop:
-	ldrb	char,[strPtr],#1	@load in a character (byte)
-	cmp	char,#0			@see if its a \0
-	beq	exit
+	ldrb	char,[string],#1
 
-	add	length,#1		@increment counter
-	b	loop			@loop back
+	cmp	char,#0
+	beq	return			@if(char == \0) return
 
-exit:
+	add	length,#1
+	b	loop
+
+return:
 	pop	{R1,R2}
 	bx	LR
 .end

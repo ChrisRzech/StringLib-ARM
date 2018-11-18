@@ -21,8 +21,8 @@ string_indexOf_3:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
 found  .req R0   @
-strPtr .req R1   @
-subPtr .req R2   @
+string .req R1   @
+substr .req R2   @
 char   .req R3   @
 index  .req R4   @
 @@@@@@@@@@@@@@@@@@
@@ -31,24 +31,24 @@ index  .req R4   @
 	mov	index,#0		@initialize index
 
 loop:
-	ldrb	char,[strPtr]		@R0 = *strPtr
-	cmp	char,#0			@if(R0 == \0) return
-	beq	not_found
+	ldrb	char,[string]
+
+	cmp	char,#0
+	beq	not_found		@if(R0 == \0) not found
 	
 	bl	string_startsWith_1
-	cmp	found,#1		@if(found) return
-	beq	exit
+	cmp	found,#1
+	beq	return			@if(found) return
 
-	add	strPtr,#1		@increment string ptr
-	add	index,#1		@increment index
+	add	string,#1
+	add	index,#1
 	b	loop
 
 not_found:
 	bl	string_set_ovfl
 	mov	index,#-1
-	b	exit
 
-exit:
+return:
 	mov	R0,index		@make sure we return the index
 
 	pop	{R1-R4,LR}

@@ -37,15 +37,14 @@ startIndex .req R3 @
 
 	add	string,startIndex	@string += startIndex
 	
-	bl	string_indexOf_1
-	b	exit
+	bl	string_indexOf_1	@R0 = result
+	b	return
 
 bad_index:
 	bl	string_set_ovfl
 	mov	index,#-1
-	b	exit
 
-exit:
+return:
 	pop	{R1,R3,LR}
 	bx	LR
 .end

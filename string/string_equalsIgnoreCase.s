@@ -23,26 +23,24 @@ str1     .req R1 @
 str1Copy .req R1 @
 str2     .req R2 @
 str2Copy .req R2 @
-temp     .req R3 @
 @@@@@@@@@@@@@@@@@@
-	push	{R1-R3,LR}
+	push	{R1,R2,LR}
 
 	bl	string_copy		@R0 = copy(str1)
-	mov	str1Copy,copy		@str1Copy = copy
+	mov	str1Copy,copy
 	bl	string_toLowerCase	@str1Copy is lowercased
-	mov	temp,str1Copy		@temp = str1Copy
+	push	{str1Copy}		@save str1Copy
 
-	mov	R1,str2			@R1 = str2
+	mov	R1,str2
 	bl	string_copy		@R0 = copy(str2)
-	mov	R1,copy			@R1 = copy
-	bl	string_toLowerCase	@R1 is lowercased
+	mov	R1,copy
+	bl	string_toLowerCase	@str2Copy is lowercased
 	mov	str2Copy,R1		@str2Copy = R1
-	
-	mov	str1Copy,temp		@str1Copy = temp
+	pop	{str1Copy}		@load str1Copy
 
 	bl	string_equals		@R0 = str1Copy == str2Copy
 
-	pop	{R1-R3,LR}
+	pop	{R1,R2,LR}
 	bx	LR
 .end
 		

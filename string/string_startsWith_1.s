@@ -30,19 +30,19 @@ loop:
 	ldrb	char1,[string],#1
 	ldrb	char2,[substr],#1
 
-	cmp	char2,#0	@if(char2 == \0) exit
-	moveq	found,#1
-	beq	exit
+	cmp	char2,#0
+	moveq	found,#1	@if(char2 == \0) return
+	beq	return
 
-	cmp	char1,#0	@if(char1 == \0) exit
-	beq	exit
+	cmp	char1,#0
+	beq	return		@if(char1 == \0) return
 
-	cmp	char1,char2	@if(char1 != char2) exit
-	bne	exit
+	cmp	char1,char2
+	bne	return		@if(char1 != char2) return
 
 	b	loop
 
-exit:
+return:
 	pop	{R1-R4}
 	bx	LR
 .end

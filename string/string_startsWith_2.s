@@ -30,36 +30,32 @@ index      .req R5 @
 
 	bl	string_length
 	mov	length,R0
-	sub	length,#1
 
-	cmp	startIndex,length	@if(startIndex > length) then bad index
-	bhi	bad_index
+	cmp	startIndex,length
+	bhs	bad_index		@if(startIndex >= length) bad index
 
 	add	string,startIndex	@start the string at the starting index
 	mov	index,#0
 	
 loop:
-	ldrb	R0,[string]		@if(R0 == \0) exit
-	cmp	R0,#0
-	beq	exit
+	ldrb	R0,[string]
 
-	bl	string_startsWith_1
+	cmp	R0,#0
+	beq	return			@if(R0 == \0) return
+
+	bl	string_startsWith_1	@R0 = starts with it or not
 	
 	cmp	found,#1
-	beq	exit
+	beq	return			@if(found) return
 
 	add	string,#1
 	b	loop
 
 bad_index:
-	mov	R0,#0x80000000
-	subs	R0,#1			@Flags set: C V
-	mov	R0,#2
-	asrs	R0,#1			@Flags set: V
+	bl	string_set_ovfl
 	mov	found,#0
-	b	exit
 
-exit:
+return:
 	pop	{R1-R5,LR}
 	bx	LR
 .end

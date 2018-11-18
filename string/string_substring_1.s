@@ -28,37 +28,37 @@ string     .req R1 @
 startIndex .req R2 @
 index      .req R2 @
 endIndex   .req R3 @
-maxIndex   .req R4 @
+length     .req R4 @
 charLoad   .req R4 @
 @@@@@@@@@@@@@@@@@@@@
 	push	{R1-R4,LR}
 
-	bl	string_length
-	sub	maxIndex,R0,#1		@maxIndex = string.length() - 1
+	bl	string_length		@R0 = string.length()
+	mov	length,R0
 
 	cmp	startIndex,endIndex
 	bhi	bad_index		@if(startIndex > endIndex) bad index
 
-	cmp	startIndex,maxIndex
-	bhi	bad_index		@if(startIndex > maxIndex) bad index
+	cmp	startIndex,length
+	bhs	bad_index		@if(startIndex >= length) bad index
 
-	cmp	endIndex,maxIndex
-	bhi	bad_index		@if(endIndex > maxIndex) bad index
+	cmp	endIndex,length
+	bhs	bad_index		@if(endIndex >= length) bad index
 
 	sub	R0,endIndex,startIndex	@R0 = startIndex + endIndex
 	add	R0,#1			@R0 consists of indexes, we need string length
 	bl	string_malloc		@R0 = address for substring
 
-	add	string,startIndex	@string += startIndex
+	add	string,startIndex	@offset the string by the starting index
 
-	push	{substring}		@save the substring address
+	push	{substring}		@save substring
 
 loop:
 	ldrb	charLoad,[string],#1
 	strb	charLoad,[substring],#1
 
-	cmp	index,endIndex
-	beq	exit			@if(index == endIndex) return
+	cmp	index,endIndex		@note: index = startIndex
+	beq	return			@if(index == endIndex) return
 
 	add	index,#1
 	b	loop
@@ -66,10 +66,10 @@ loop:
 bad_index:
 	bl	string_set_ovfl
 	mov	substring,#0		@substring = NULL
-	b	exit
 
-exit:
-	pop	{R0-R4,LR}
+return:
+	pop	{substring}		@load substring
+	pop	{R1-R4,LR}
 	bx	LR
 .end
 

@@ -1,5 +1,6 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@ Returns a character at a given index. @
+@ Returns a character at a given index  @
+@                                       @
 @ If the requested index is larger than @
 @ the string length, overflow flag is   @
 @ set and \0 is returned.               @
@@ -19,31 +20,26 @@ string_charAt:
 @@@@@@@@@@@@@@@@@@
 @ Register Alias @
 char   .req R0   @
-strPtr .req R1   @
+string .req R1   @
 index  .req R2   @
 length .req R3   @
 @@@@@@@@@@@@@@@@@@
 	push	{R1-R3,LR}
 
-	bl	string_length		@obtain string length
-	mov	length,R0		@move the length
+	bl	string_length		@R0 = string.length()
+	mov	length,R0
 
-	cmp	length,index		@if(length <= index) v-flag = 1;
-	bcc	bad_index
+	cmp	index,length
+	bhs	bad_index		@if(index >= length) bad index
 
-loop:
-	ldrb	char,[strPtr],#1	@load character
-	cmp	index,#0
-	beq	exit
-	subs	index,#1		@decrement index
-	b	loop
+	ldrb	char,[string,index]
+	b	return
 
 bad_index:
 	bl	string_set_ovfl
 	mov	char,#0
-	b	exit
 
-exit:
+return:
 	pop	{R1-R3,LR}
 	bx	LR
 .end

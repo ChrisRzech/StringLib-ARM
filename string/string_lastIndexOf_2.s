@@ -28,25 +28,23 @@ length     .req R0 @
 string     .req R1 @
 startIndex .req R3 @
 @@@@@@@@@@@@@@@@@@@@
-	push	{R1-R3,LR}
+	push	{R1,R3,LR}
 
 	bl	string_length		@length/R0 = string.length()
 
 	cmp	startIndex,length
 	bhs	bad_index		@if(startIndex >= length) bad index
 
-
-	add	string,startIndex	@string += startIndex
+	add	string,startIndex	@offset the string
 	bl	string_lastIndexOf_1	@R0 = index where character was found
 	addvc	index,startIndex	@if(v-flag == 0) index += startIndex
-	b	exit
+	b	return
 
 bad_index:
 	bl	string_set_ovfl
 	mov	index,#-1
-	b	exit
 
-exit:
-	pop	{R1-R3,LR}
+return:
+	pop	{R1,R3,LR}
 	bx	LR	
 .end

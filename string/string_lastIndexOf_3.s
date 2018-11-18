@@ -25,39 +25,33 @@ string .req R1   @
 subing .req R2   @
 char   .req R3   @
 index  .req R4   @
-count  .req R4   @
 @@@@@@@@@@@@@@@@@@
 	push	{R1-R4,LR}
 
-	mov	index,#0		@initialize index
-	
 	bl	string_length		@R0 = string.length()
-	mov	count,R0
-	sub	count,#1
-	add	string,count
+	sub	index,R0,#1		@index is now max index
+	add	string,index		@offset string by max index
 
 loop:
-	ldrb	char,[string]		@R0 = *string
-	cmp	char,#0			@if(R0 == \0) return
-	beq	exit
-	
-	bl	string_startsWith_1	@R0 = found or not
-	cmp	found,#1		@if(found) return
-	beq	exit
+	ldrb	char,[string]
 
-	sub	string,#1		@decrement string ptr
-	sub	count,#1		@decrement index
-	cmp	count,#0
-	beq	not_found
+	bl	string_startsWith_1	@R0 = found or not
+	cmp	found,#1
+	beq	return			@if(found) return
+
+	cmp	index,#-1
+	beq	not_found		@if(index == -1) not found
+
+	sub	string,#1
+	sub	index,#1
 	b	loop
 
 not_found:
 	bl	string_set_ovfl
-	mov	count,#-1
-	b	exit
+	mov	index,#-1
 
-exit:
-	mov	R0,count		@make sure we return the index
+return:
+	mov	R0,index		@make sure we return the index
 
 	pop	{R1-R4,LR}
 	bx	LR

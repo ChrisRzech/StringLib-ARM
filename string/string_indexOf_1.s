@@ -30,12 +30,13 @@ charLoad .req R3 @
 	mov	index,#0
 
 loop:
-	ldrb	charLoad,[string],#1	@load in a character (byte)
+	ldrb	charLoad,[string],#1
+
 	cmp	charLoad,#0
 	beq	not_found		@if(chLoad == \0) not found
 
 	cmp	charLoad,char
-	beq	exit			@if(chLoad == char) return
+	beq	return			@if(chLoad == char) return
 
 	adds	index,#1		@increments index
 	b	loop
@@ -43,9 +44,8 @@ loop:
 not_found:
 	bl	string_set_ovfl
 	mov	index,#-1
-	b	exit
 
-exit:
+return:
 	pop	{R1-R3,LR}
 	bx	LR	
 .end
