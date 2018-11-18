@@ -20,13 +20,13 @@ v_bool:
 
 	cmp	R0,#0
 	ldreq	R1,=false	@if(R0 == 0) R1 = false
-	beq	exit
+	beq	return
+
 	cmp	R0,#1
 	ldreq	R1,=true	@else if(R0 == 1) R1 = true
 	ldrne	R1,=error	@else R1 = error
-	b	exit
 
-exit:
+return:
 	bl	string_print
 
 	pop	{R1,LR}

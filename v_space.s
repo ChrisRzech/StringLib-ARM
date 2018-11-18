@@ -1,3 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ Outputs a single space @
+@@@@@@@@@@@@@@@@@@@@@@@@@@
 .data
 space:	.asciz	" "
 
