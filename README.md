@@ -1,5 +1,5 @@
 # StringLib-ARM
-This is a group project that creates a string library. In our class, we use the ARM architecture--from the Raspberry Pi 3 Model B+ provided for the class. Our main driver ``start.s`` will test our string library. Function documentation can be found in the [wiki](https://github.com/ChrisRzech/RASM-3/wiki/Function-Documentation).
+This is a group project that creates a string library. In our class, we use the ARM architecture--from the Raspberry Pi 3 Model B+ provided for the class. Our main driver ``start.s`` will test our string library. Function documentation can be found in the [wiki](https://github.com/ChrisRzech/StringLib-ARM/wiki).
 
 # Contributors
 - [ChrisRzech](https://github.com/ChrisRzech)
